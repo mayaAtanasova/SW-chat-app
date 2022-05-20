@@ -1,0 +1,6 @@
+.chat-body .message-container {
+  width: 750px;
+  height: 750px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
