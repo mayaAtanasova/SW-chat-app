@@ -14,12 +14,13 @@ const getCurrentUser = (id) => {
 const userLeave = (id) => {
     const index = users.findIndex(u => u.id === id);
     if(index !== -1){
-        return users.splice(index, 1);
+        return users.splice(index, 1)[0];
     }
 };
 
 const getRoomUsers = (room) => {
-    const roomUsers = users.find(u => u.room === room);
+    const roomUsers = users.filter(u => u.room === room);
+    console.log(roomUsers);
     return roomUsers;
 };
 

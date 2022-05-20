@@ -57,20 +57,21 @@ io.on('connection', socket => {
     socket.on('chatMsg', msg => {
 
         const user = getCurrentUser(socket.id);
-        console.log('from chatMsg user room:', user.room, msg);
 
         io.in(user.room).emit('message', formatMessage(user.username, msg));
     });
 
     //Runs when client disconnects
     socket.on('disconnect', () => {
+        console.log(`user id ${socket.id} disconnected`);
         const user = userLeave(socket.id);
 
         if (user) {
-            io.to(user.room).emit('message', formatMessage(chatAdmin, `User ${user.username} has left the chat`));
+            io.in(user.room)
+            .emit('message', formatMessage(chatAdmin, `User ${user.username} has left the chat`));
 
             //resend users and room info
-            io.to(user.room).emit('roomUsers', {
+            io.in(user.room).emit('roomUsers', {
                 room: user.room,
                 users: getRoomUsers(user.room),
             })

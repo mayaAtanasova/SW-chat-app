@@ -1,0 +1,49 @@
+.room-data {
+    width: 20%;
+    display: flex;
+    margin: 2%;
+    flex-direction: column;
+    font-size: 20px;
+}
+
+.room-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.room-name div:nth-child(1),
+.users-name {
+    width: 100px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.room-name div:nth-child(2) {
+    background-color: #163446;
+    padding: 10px 5px;
+    margin: 5px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.users-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.users-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: #163446;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 10px;
+    font-size: 16px;;
+}
+
+.person-icon {
+    margin-right: 5px;
+}

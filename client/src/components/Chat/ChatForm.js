@@ -1,16 +1,15 @@
 import React, { useState, useContext, useEffect } from 'react';
 import ChatContext from '../../store/chat-context';
-import ScrollToBottom from 'react-scroll-to-bottom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import './ChatForm.css';
 import Messages from '../Messages/Messages';
 import RoomInfo from '../RoomInfo/RoomInfo';
+import MessageInput from '../MessageInput/MessageInput';
 
 
 const ChatForm = ({ socket }) => {
     const ctx = useContext(ChatContext);
-    const username = ctx.user.username;
 
     const [currentMessage, setCurrentMessage] = useState('');
     const [messageList, setMessageList] = useState([]);
@@ -35,8 +34,9 @@ const ChatForm = ({ socket }) => {
     }, [socket]);
 
     useEffect(() => {
-        socket.on('roomUsers', data => {
-            setRoomUsers(oldUsers => [...oldUsers, data]);
+        socket.on('roomUsers', ({ users }) => {
+            console.log(users);
+            setRoomUsers(users);
         });
     }, [socket]);
 
@@ -54,8 +54,15 @@ const ChatForm = ({ socket }) => {
                     </button>
                 </div>
                 <div className="chat-main">
-                    <RoomInfo roomUsers={roomUsers} room={ctx.user.room} />
-                    <Messages messageList={messageList} username={username} />
+                    <RoomInfo 
+                    users={roomUsers}
+                    room={ctx.user.room}
+                    />
+                    <Messages
+                        className="message-container"
+                        messageList={messageList}
+                    />
+                    <MessageInput />
                 </div>
             </div>
             <div className="chat-footer">

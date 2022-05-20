@@ -1,6 +1,15 @@
 .message-container {
-    padding: 5% 0;
-    overflow: auto;
-    flex: auto;
-    height: 500px;
+  overflow: auto;
+  display: flex;
+  flex: 1;
+  background-color: #899aaa;
+  margin: 2%;
+  width: 70%;
+  height: 560px;
+  border-radius: 10px;
+}
+
+.message-wrapper {
+  display: flex;
+  flex-flow: column wrap;
 }

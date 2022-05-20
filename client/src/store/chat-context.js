@@ -23,6 +23,7 @@ export const ChatContextProvider = (props) => {
     const joinHandler = (data) => {
         localStorage.setItem('user', JSON.stringify(data));
         setIsJoined(true);
+        setUser(data);
     };
 
     const leaveHandler = () => {
