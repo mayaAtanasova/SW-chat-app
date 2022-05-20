@@ -3,64 +3,60 @@ import ChatContext from '../../store/chat-context';
 import ScrollToBottom from 'react-scroll-to-bottom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
-// import moment from 'react-moment';
+import './ChatForm.css';
+import Messages from '../Messages/Messages';
+import RoomInfo from '../RoomInfo/RoomInfo';
 
 
 const ChatForm = ({ socket }) => {
     const ctx = useContext(ChatContext);
+    const username = ctx.user.username;
 
     const [currentMessage, setCurrentMessage] = useState('');
     const [messageList, setMessageList] = useState([]);
+    const [roomUsers, setRoomUsers] = useState([]);
 
     const sendMessage = async () => {
         if (currentMessage !== '') {
-            // const message = {
-            //     username: ctx.user.username,
-            //     text: currentMessage,
-            //     time: moment().format('h:mm a'),
-            // };
-            console.log(currentMessage);
             await socket.emit('chatMsg', currentMessage);
             setCurrentMessage('');
         }
     };
 
+    const leaveRoom = () => {
+        ctx.onLeaveRoom();
+        socket.disconnect();
+    };
+
     useEffect(() => {
         socket.on('message', data => {
-            setMessageList(oldMsgs => [...oldMsgs, data]);
-            console.log(messageList);
-
+            setMessageList(messageList => ([...messageList, data]));
         });
-    }, []);
+    }, [socket]);
+
+    useEffect(() => {
+        socket.on('roomUsers', data => {
+            setRoomUsers(oldUsers => [...oldUsers, data]);
+        });
+    }, [socket]);
 
     return (
         <>
-            <div>ChatForm</div>
-            <div className="chat-body">
-                <button className='leave-room'>
-                    <FontAwesomeIcon className='leave-icon' icon={faRightFromBracket} /> Leave Room
-                </button>
-                <ScrollToBottom className="message-container">
-                    {messageList.map((messageContent, i) => {
-                        return (
-                            <div
-                                className="message"
-                                id={ctx.user.username === messageContent.username ? "you" : "other"}
-                                key={i}
-                            >
-                                <div>
-                                    <div className="message-content">
-                                        <p>{messageContent.text}</p>
-                                    </div>
-                                    <div className="message-meta">
-                                        <p id="time">{messageContent.time}</p>
-                                        <p id="author">{messageContent.username}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        );
-                    })}
-                </ScrollToBottom>
+            <div className="chat-container">
+                <div className='chat-header'>
+                    <img className='logo' src='/assets/SWlogo_s_w.png' alt='SW'
+                    />
+                    <p>StreamWorks Chat</p>
+                    <button
+                        className='leave-room'
+                        onClick={leaveRoom}>
+                        <FontAwesomeIcon className='leave-icon' icon={faRightFromBracket} /> Leave Room
+                    </button>
+                </div>
+                <div className="chat-main">
+                    <RoomInfo roomUsers={roomUsers} room={ctx.user.room} />
+                    <Messages messageList={messageList} username={username} />
+                </div>
             </div>
             <div className="chat-footer">
                 <input

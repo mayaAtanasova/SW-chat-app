@@ -1,32 +1,32 @@
-.chat-container {
-    width: 750px;
-    margin: auto;
-    color: white;
-    margin-top: 50px;
-    font-family: 'Roboto';
-    font-size: 24px;
+.join-container {
+  width: 500px;
+  margin: auto;
+  color: white;
+  margin-top: 50px;
+  font-family: "Roboto";
+  font-size: 24px;
 }
 
 .form-header {
-    width: 750px;
-    background-color: #163446;
-    border: 2px solid white;
-    border-radius: 10px 10px 0 0;
-    display: flex;
-    justify-content:flex-start;
+  width: 100%;
+  background-color: #163446;
+  border: 2px solid white;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .logo {
-    width: 40px;
-    height: auto;
-    margin: 15px 15px 15px 25px;
+  width: 40px;
+  height: auto;
+  margin: 15px 15px 15px 25px;
 }
 
 p {
-    margin: 0;
-    display: flex;
-    justify-content:left;
-    align-items: center;
+  margin: 0;
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }
 
 /* .leave-room {
@@ -40,44 +40,63 @@ p {
 } */
 
 .form-container {
-    width: 100%;
-    background-color: #1E485F;
-    border: 2px solid white;
-    border-top: 0px;
+  width: 100%;
+  background-color: #1e485f;
+  border: 2px solid white;
+  border-top: 0px;
 }
 
 .join-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .join-form label {
-    margin: 25px 5px 10px 5px;
+  margin: 25px 5px 10px 5px;
 }
 
 .join-form input {
-    display: inline-block;
-    flex: 1;
-    width: 500px;
-    background-color: #899AAA;
-    font-size: 16px;
-    border: none;
-    border-radius: 10px;
-    padding: 20px;
+  display: inline-block;
+  flex: 1;
+  width: 350px;
+  background-color: #899aaa;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
 }
 
 .join-form button {
-    border: none;
-    background-color: #163446;
-    border-radius: 10px;
-    color: white;
-    margin: 45px;
-    padding: 25px 65px;
-    font-size: 24px;
+  border: none;
+  background-color: #163446;
+  border-radius: 10px;
+  color: white;
+  margin: 45px;
+  padding: 25px 65px;
+  font-size: 24px;
 }
 
 .join-form button:hover {
-    cursor: pointer;
-    opacity: 0.8;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+@media (max-width: 500px) {
+  .join-container {
+    width: 300px;
+    font-size: 18px;
+  }
+
+  .form-header {
+    width: 300px;
+  }
+
+  .join-form input {
+    width: 200px;
+  }
+
+  .join-form button {
+      font-size: 16px;
+  }
 }
