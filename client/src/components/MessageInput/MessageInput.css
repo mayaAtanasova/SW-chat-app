@@ -11,7 +11,7 @@
     margin: 2% 0 5% 5%;
     padding: 15px;
     border-radius: 10px 0 0 10px;
-    font-size: 1em;
+    font-size: 0.8em;
 }
 
 .send-button {
@@ -23,7 +23,7 @@
     border-radius: 0 10px 10px 0;
     margin: 2% 5% 5% 0;
     padding: 15px;
-    font-size: 1em;
+    font-size: 0.8em;
     color: white;
     display: flex;
     align-items: center;
