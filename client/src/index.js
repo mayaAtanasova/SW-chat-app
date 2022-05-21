@@ -7,10 +7,13 @@ import 'typeface-roboto';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 document.body.style.backgroundColor = 'black';
+window.onbeforeunload = function () {
+    localStorage.clear();
+};
 
 root.render(
     <ChatContextProvider>
-    <App />
+        <App />
     </ChatContextProvider>
 );
 

@@ -3,7 +3,7 @@
   border-radius: 10px;
   width: 70%;
   margin: 0.75em;
-  padding: 5px;
+  padding: 5px;  
 }
 
 .message-author {
@@ -17,6 +17,7 @@
   color: #000000;
   font-size: 0.8em;
   padding: 5px;
+  word-break: break-all;
 }
 
 .message-time {
