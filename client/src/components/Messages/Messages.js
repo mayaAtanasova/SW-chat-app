@@ -3,12 +3,12 @@ import Message from '../Message/Message';
 import './Messages.css';
 
 const Messages = ({ messageList }) => {
-
+    console.log('fromMessages?');
     return (
         <ScrollToBottom className="message-container">
             {messageList.map((messageContent, i) => (
-                <div className="message-wrapper">
-                    <Message content={messageContent} key={i} />
+                <div key={i} className="message-wrapper">
+                    <Message content={messageContent}  />
                 </div>
             ))}
         </ScrollToBottom>

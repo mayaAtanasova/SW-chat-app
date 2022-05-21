@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useRef } from 'react';
 import ChatContext from '../../store/chat-context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
@@ -11,15 +11,21 @@ import MessageInput from '../MessageInput/MessageInput';
 const ChatForm = ({ socket }) => {
     const ctx = useContext(ChatContext);
 
-    const [currentMessage, setCurrentMessage] = useState('');
     const [messageList, setMessageList] = useState([]);
     const [roomUsers, setRoomUsers] = useState([]);
 
-    const sendMessage = async () => {
-        if (currentMessage !== '') {
-            await socket.emit('chatMsg', currentMessage);
-            setCurrentMessage('');
+    const inputRef = useRef();
+
+    const sendMessage = () => {
+        // if (currentMessage !== '') {
+        //     await socket.emit('chatMsg', currentMessage);
+        //     setCurrentMessage('');
+        // }
+        const message = inputRef.current.value;
+        if (message !== '') {
+            socket.emit('chatMsg', message);
         }
+        inputRef.current.value = '';
     };
 
     const leaveRoom = () => {
@@ -41,45 +47,35 @@ const ChatForm = ({ socket }) => {
     }, [socket]);
 
     return (
-        <>
-            <div className="chat-container">
-                <div className='chat-header'>
-                    <img className='logo' src='/assets/SWlogo_s_w.png' alt='SW'
-                    />
-                    <p>StreamWorks Chat</p>
-                    <button
-                        className='leave-room'
-                        onClick={leaveRoom}>
-                        <FontAwesomeIcon className='leave-icon' icon={faRightFromBracket} /> Leave Room
-                    </button>
-                </div>
-                <div className="chat-main">
-                    <RoomInfo 
+        <div className="chat-container">
+            <div className='chat-header'>
+                <img className='logo' src='/assets/SWlogo_s_w.png' alt='SW'
+                />
+                <p>StreamWorks Chat</p>
+                <button
+                    className='leave-room'
+                    onClick={leaveRoom}>
+                    <FontAwesomeIcon className='leave-icon' icon={faRightFromBracket} /> Leave Room
+                </button>
+            </div>
+            <div className="chat-main">
+                <RoomInfo
                     users={roomUsers}
                     room={ctx.user.room}
-                    />
-                    <Messages
-                        className="message-container"
-                        messageList={messageList}
-                    />
-                    <MessageInput />
-                </div>
+                />
+                <Messages
+                    className="message-container"
+                    messageList={messageList}
+                />
             </div>
             <div className="chat-footer">
-                <input
-                    type="text"
-                    value={currentMessage}
-                    placeholder="Input your message here..."
-                    onChange={(event) => {
-                        setCurrentMessage(event.target.value);
-                    }}
-                    onKeyPress={(event) => {
-                        event.key === 'Enter' && sendMessage();
-                    }}
+                <MessageInput
+                    ref={inputRef}
+                    sendMessage={sendMessage}
                 />
-                <button onClick={sendMessage}>Send</button>
             </div>
-        </>
+
+        </div>
     );
 };
 

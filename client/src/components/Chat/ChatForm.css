@@ -46,9 +46,16 @@ p {
   background-color: #1E485F;
   border: 2px solid white;
   border-top: none;
+  border-bottom: none;
   display: flex;
   align-items: space-around;
 }
 
+.chat-footer {
+  width: 100%;
+  background-color: #1E485F;
+  border: 2px solid white;
+  border-top: none;
+}
 
 

@@ -29,6 +29,7 @@ export const ChatContextProvider = (props) => {
     const leaveHandler = () => {
         localStorage.removeItem('user');
         setIsJoined(false);
+        window.location.reload(false);
     };
 
     return (
