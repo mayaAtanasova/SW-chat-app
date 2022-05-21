@@ -11,7 +11,7 @@
     margin: 2% 0 5% 5%;
     padding: 15px;
     border-radius: 10px 0 0 10px;
-    font-size: 20px;
+    font-size: 1em;
 }
 
 .send-button {
@@ -23,7 +23,19 @@
     border-radius: 0 10px 10px 0;
     margin: 2% 5% 5% 0;
     padding: 15px;
-    font-size: 20px;
+    font-size: 1em;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.fa-icon {
+    margin-right: 10px;
+}
+
+@media (max-width: 500px) {
+    .message-input, .send-button {
+        font-size: 0.75em;
+    }
 }

@@ -1,15 +1,21 @@
 .message-container {
   overflow: auto;
   display: flex;
-  flex: 1;
+  height: 600px;
+  flex: 4;
   background-color: #899aaa;
-  margin: 2%;
-  width: 70%;
-  height: 660px;
+  margin: 5%;
   border-radius: 10px;
 }
 
 .message-wrapper {
   display: flex;
   flex-flow: column wrap;
+}
+
+@media (max-width: 500px) {
+  .message-container {
+    flex: 4;
+    height: 100%;
+  };
 }

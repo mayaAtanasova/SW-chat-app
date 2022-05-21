@@ -1,4 +1,6 @@
 import React, { forwardRef } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import './MessageInput.css';
 
 const MessageInput = forwardRef(({ sendMessage }, ref) => {
@@ -21,7 +23,10 @@ const MessageInput = forwardRef(({ sendMessage }, ref) => {
                     event.preventDefault();
                     sendMessage();
                 }}
-                >Send</button>
+                >
+                    <FontAwesomeIcon className="fa-icon" icon={faPaperPlane}/>
+                    <p>Send</p>
+                    </button>
         </form>
     );
 });

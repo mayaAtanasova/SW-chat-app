@@ -10,7 +10,6 @@ import './RoomInfo.css';
 
 
 const RoomInfo = ({ users, room }) => {
-    console.log(users);
 
     return (
         <div className="room-data">
@@ -26,6 +25,7 @@ const RoomInfo = ({ users, room }) => {
                     <p>Users</p>
                     <FontAwesomeIcon icon={faPeopleRoof} />
                 </div>
+                <div className="users-count"> {users.length} users</div>
                 <ScrollToBottom className="users-container">
                     {users && users.map((user) => (
                     <div 

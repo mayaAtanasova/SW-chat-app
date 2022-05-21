@@ -4,8 +4,6 @@ import './Message.css';
 
 const Message = ({ content }) => {
     const ctx = useContext(ChatContext);
-    const username = ctx.user.username;
-    console.log(username, content.username);
     return (
         <div
             className={`message ${ctx.user.username === content.username ? 'me' : 'other'} ${content.username === 'SW Admin' ? 'admin' : null}`}

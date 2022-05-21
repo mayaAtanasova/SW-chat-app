@@ -9,7 +9,6 @@ const socket = io.connect('http://localhost:3001');
 function App() {
 
   const ctx = useContext(ChatContext);
-  console.log(ctx.isJoined);
 
   return (
     <>

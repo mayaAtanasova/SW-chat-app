@@ -41,7 +41,6 @@ const ChatForm = ({ socket }) => {
 
     useEffect(() => {
         socket.on('roomUsers', ({ users }) => {
-            console.log(users);
             setRoomUsers(users);
         });
     }, [socket]);

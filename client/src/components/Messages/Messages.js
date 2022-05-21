@@ -3,7 +3,6 @@ import Message from '../Message/Message';
 import './Messages.css';
 
 const Messages = ({ messageList }) => {
-    console.log('fromMessages?');
     return (
         <ScrollToBottom className="message-container">
             {messageList.map((messageContent, i) => (

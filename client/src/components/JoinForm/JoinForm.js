@@ -20,7 +20,7 @@ const JoinForm = ({ socket }) => {
     };
 
     return (
-        <div className='chat-container'>
+        <div className='join-container'>
             <div className='form-header'>
                 <img className='logo' src='/assets/SWlogo_s_w.png' alt='SW'
                 />
