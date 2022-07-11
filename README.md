@@ -1,6 +1,6 @@
-# sw-chat-app
-a chat application
-A small chat application developed for a company organizing company meetings.
-Users can join rooms and participate in chat there.
-Backend developed using Node.js, express and socket.io
-Frontend - React.
+# SW-chat-app
+A small chat application
+- developed for internal use for a company organizing events.
+- users can join different rooms and participate in chats there.
+- Backend developed using Node.js, express and socket.io
+- Frontend - React.
