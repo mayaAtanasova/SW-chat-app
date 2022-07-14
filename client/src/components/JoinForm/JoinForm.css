@@ -9,8 +9,8 @@
 
 .form-header {
   width: 100%;
-  background-color: #163446;
-  border: 2px solid white;
+  background-color: hsla(203, 52%, 18%, 0.5);
+  border: 1px solid rgb(201, 201, 201);
   border-radius: 10px 10px 0 0;
   display: flex;
   justify-content: flex-start;
@@ -31,8 +31,9 @@ p {
 
 .form-container {
   width: 100%;
-  background-color: #1e485f;
-  border: 2px solid white;
+  background-color: hsla(201, 52%, 40%, 0.3);
+  border: 0.5px solid rgb(201, 201, 201);
+  border-radius: 0 0 10px 10px;
   border-top: 0px;
 }
 
@@ -50,17 +51,17 @@ p {
   display: inline-block;
   flex: 1;
   width: 80%;
-  background-color: #899aaa;
+  background-color: #c6cdd4;
   font-size: 16px;
   border: none;
-  border-radius: 10px;
-  padding: 20px;
+  border-radius: 2px;
+  padding: 10px;
 }
 
 .join-form button {
   border: none;
-  background-color: #163446;
-  border-radius: 10px;
+  background-color: hsla(203, 52%, 18%, 0.9);
+  border-radius: 2px;
   color: white;
   margin: 45px;
   padding: 25px 65px;

@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import 'typeface-roboto';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-document.body.style.backgroundColor = 'black';
+document.body.style.backgroundColor = 'rgba(5,5,5,0.9)';
 window.onbeforeunload = function () {
     localStorage.clear();
 };
